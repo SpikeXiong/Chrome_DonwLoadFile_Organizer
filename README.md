@@ -20,6 +20,6 @@
 ![image](https://raw.githubusercontent.com/SpikeXiong/Chrom_DonwLoadFile_Organizer/main/Options.png)
 
 <p>规则判断是由上往下的，数据更新触发在UnFocused中(因为本人对这一套玩意确实不熟，等有人说不好用我再改吧🙈)</p>
-
+<p> 文件名的判断规则是正则表达式(我还没测过，如果不生效可以直接留言告诉我🤣) </p>
 
 
