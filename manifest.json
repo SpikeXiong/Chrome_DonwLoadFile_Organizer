@@ -1,0 +1,25 @@
+{
+    "name": "DownLoad Organizer",
+    "description": "设定规则，管理下载路径",
+    "version": "0.0.1.0",
+    "manifest_version": 3,
+    "permissions": [
+        "downloads",
+        "storage",
+        "tabs"
+    ],
+    "options_page":  "option/option.html",
+    "background":{
+        "service_worker": "service-worker.js",
+        "type": "module"
+    },
+    "icons":{
+        "16": "images/DownLoad Orgnaizer.png",
+        "48": "images/DownLoad Orgnaizer.png",
+        "128": "images/DownLoad Orgnaizer.png"
+    },
+    "action": {
+        "default_title": "DownLoad Organizer",
+        "default_icon": "images/DownLoad Orgnaizer.png"
+    }
+  }
