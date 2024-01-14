@@ -8,7 +8,18 @@
 ## 如何使用
 <p> 本人还没有搞到开发者账号，所以该插件还没有发布到任何插件商店中…… </p>
 <p> 如果想使用可以下载解压后在开发者模式下加载插件 </p>
-![image](https://github.com/SpikeXiong/Chrom_DonwLoadFile_Organizer/blob/main/LoadExtensions.png)
+
+![image](https://raw.githubusercontent.com/SpikeXiong/Chrom_DonwLoadFile_Organizer/main/LoadExtensions.png)
+
+<p>点击这里进入规则设置界面</p>
+
+![image](https://raw.githubusercontent.com/SpikeXiong/Chrom_DonwLoadFile_Organizer/main/OpenOptions.png)
+
+<p>然后就可以添加自己的规则了</p>
+
+![image](https://raw.githubusercontent.com/SpikeXiong/Chrom_DonwLoadFile_Organizer/main/Options.png)
+
+<p>规则判断是由上往下的，数据更新触发在UnFocused中(因为本人对这一套玩意确实不熟，等有人说不好用我再改吧🙈)</p>
 
 
 
