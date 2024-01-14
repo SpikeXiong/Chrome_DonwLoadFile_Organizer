@@ -248,7 +248,7 @@ export class downLoadFileMgr{
     //传入的文件名后缀是否为下载文件的后缀
     _extensionMatched(extension){    
         console.log('_extensionMatched');            
-        const fileExt = this.getFileExtension(this.fileName);
+        const fileExt = '.' + this.getFileExtension(this.fileName);
         const result = (extension.indexOf(fileExt) != -1) || (extension == '');
         return result;
     }
