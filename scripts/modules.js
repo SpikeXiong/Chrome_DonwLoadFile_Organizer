@@ -238,7 +238,10 @@ export class downLoadFileMgr{
     //传入的url是否为下载url的子串
     _urlMatched(url){    
         console.log('_urlMatched');    
-        const result = (url.indexOf(this.url) != -1) || (url == '');
+        console.log(`url:${url}`);
+        console.log(`url:${this.url}`); 
+        console.log(`url:${this.url.indexOf(url)}`); 
+        const result = (this.url.indexOf(url) != -1) || (url == '');
         return result;
     }
 
