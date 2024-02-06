@@ -156,6 +156,96 @@ const addRule = async () =>{
   updateList();
 }
 
+//导出规则
+const exportRule = async () => {
+  console.log("exportRuleToJsonFile");
+  const ruleList = await ruleMgr.getAllRules();
+  var jsonText = '';
+  var list = document.getElementById('list');
+  list.innerHTML = '';
+  if(ruleList.length > 0){
+    jsonText = JSON.stringify(ruleList, null, 2);    
+    console.log(jsonText);
+    };   
+
+  // 创建 Blob 对象
+  const blob = new Blob([jsonText], { type: 'application/json' });
+
+  // 创建下载链接
+  const url = URL.createObjectURL(blob);
+
+  // 创建一个 <a> 元素
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'OrganizeRuleList.json'; // 设置下载文件的名称
+
+  // 将 <a> 元素添加到页面上，并模拟点击
+  document.body.appendChild(link);
+  link.click();
+
+  // 清理
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);    
+
+  updateList();
+}
+
+// 导入规则
+const importRule = async () => {
+  console.log("importRuleFromJsonFile");
+
+  // 弹出文件选择对话框
+  const fileInput = document.createElement('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'application/json'; // 仅接受 JSON 文件
+  fileInput.addEventListener('change', handleFileSelect);
+  fileInput.click();
+
+  // 处理文件选择事件
+  async function handleFileSelect(event) {
+    const file = event.target.files[0]; // 获取选择的文件
+    if (!file) return;
+
+    try {
+      // 读取文件内容
+      const fileContent = await readFile(file);
+
+      // 解析 JSON 数据
+      const ruleList = JSON.parse(fileContent);
+
+      // 添加规则到 ruleMgr
+      await addRulesToRuleMgr(ruleList);
+
+      updateList();
+      
+      console.log("Rules imported successfully!");
+    } catch (error) {
+      console.error("Error importing rules:", error);
+    }
+  }
+
+  // 读取文件内容
+  function readFile(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (event) => resolve(event.target.result);
+      reader.onerror = (error) => reject(error);
+      reader.readAsText(file);
+    });
+  }
+
+  // 将规则添加到 ruleMgr
+  async function addRulesToRuleMgr(ruleList) {
+    for (const ruleData of ruleList) {
+      // 根据 JSON 数据创建 downloadRule 对象
+      const filter = new downloadRule(ruleData.id, ruleData.savePath, ruleData.enabled, ruleData.url, ruleData.ext, ruleData.fileName);
+      // 添加到 ruleMgr
+      await ruleMgr.addRules(filter);
+    }
+  }
+}
+
+
 // Restores select box and checkbox state using the preferences
   // stored in chrome.storage.
 const restoreOptions = () => {
@@ -171,4 +261,7 @@ const clearData = async () => {
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('addData').addEventListener('click', addRule);
 //document.getElementById('clearData').addEventListener('click', clearData);
+
+document.getElementById('exportRule').addEventListener('click', exportRule);
+document.getElementById('importRule').addEventListener('click', importRule);
 
