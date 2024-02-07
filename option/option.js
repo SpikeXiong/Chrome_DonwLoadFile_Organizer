@@ -124,8 +124,8 @@ function AddOneRuleInput(downloadRule){
   //删除按钮
   var del = document.createElement('button');
   del.id = `${id_delBtn}${downloadRule.id}`;
-  del.textContent = 'del';
-  del.className='';
+  del.textContent = '删除该规则';
+  del.className = 'layui-btn layui-bg-red layui-btn-sm del-btn';
   del.addEventListener('click', function(event){ delRule(event) });
 
   newDiv.appendChild(enabledLbl);
