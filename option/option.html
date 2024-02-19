@@ -14,8 +14,10 @@
           <form id="listForm" class="form-container__form">
             <div id="list" class="container__form__listdiv"></div>
 
-            <div class="form-container__register-buttons">
-              <button id="addData" class="form-container__sign">添加规则</button>                 
+            <div class="form-container__register-buttons">          
+              <button type="button" id="addData" class="layui-btn layui-btn-normal layui-btn-radius">添加规则</button>               
+              <button type="button" id="importRule" class="layui-btn layui-btn-radius">导入规则</button>               
+              <button type="button" id="exportRule" class="layui-btn layui-btn-warm layui-btn-radius">导出规则</button>      
               <!-- <select>  
               <label for="enableData" class="date_checkbox_label" >
                 <input id="enableData" justify-content="center" type="checkbox" column-gap="24px">根据日期创建文件夹
@@ -43,6 +45,10 @@
     </div>
 
     <script type="module" src="option.js"></script>
+    <!-- 引入 layui.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.6/css/layui.min.css" integrity="sha512-Oj4F00GvCFI5oLU6iUbcQDEQYqIGQknlIxj8Gg6veGCkDaizrCwmFWMW/2W+nu0pHPNudqQBtiqK26ouSWuhYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- 引入 layui.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.6/layui.js" integrity="sha512-/u1gjNlL9IiWjUivb7Hksum2h8ydLacMTbshB9ZiJOpxakVCZQdTWrqZAaZqFG5OAgHaUrs5qJTC/JZb0khSEw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   </body>
 </html>
 
